@@ -161,9 +161,6 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
-
-
-
 --custom Keybinds
 vim.keymap.set("n", "<leader>ee", ":Explore<cr>")
 vim.keymap.set("n", "<tab>l", ":bnext<cr>")
@@ -174,7 +171,8 @@ vim.keymap.set("n", "<leader>a", ":Alpha<cr>") --opening dashboard
 vim.keymap.set("n", "<leader>et", ":Neotree<cr>") --opening neotree
 vim.keymap.set("n", "<leader>dl", ":DarkLightSwitch<cr>") --switching dark theme and light ttheme
 --opening notes directory
-vim.keymap.set("n", "<leader>cn", ":cd ~ |cd desktop/notes<cr>")
+vim.keymap.set("n", "<leader>cn", ":cd ~|cd .. |cd SyncthingServiceAcct/Desktop/Notes<cr>")
+vim.keymap.set("n", "<leader>cr", ":cd ~|cd Aaron/Notes<cr>"
 --saving files
 vim.keymap.set("n", "<leader>sa", ":w!<cr>")
 --opening julia RPL
@@ -257,22 +255,20 @@ vim.opt.rtp:prepend(lazypath)
 --
 --
 --my plugins
--- 
+--
 --
 require("lazy").setup({
-{
-	"vimwiki/vimwiki",
-		config = function()
-		end,
-},
+	{
+		"vimwiki/vimwiki",
+		config = function() end,
+	},
 	--{
-    --'renerocksai/telekasten.nvim',
-    --dependencies = {'nvim-telescope/telescope.nvim'}
-  	--},
+	--'renerocksai/telekasten.nvim',
+	--dependencies = {'nvim-telescope/telescope.nvim'}
+	--},
 	--"prashanthellina/follow-markdown-links",
-	--'alexpearce/nvim-follow-markdown-links', 
-	
-	  
+	--'alexpearce/nvim-follow-markdown-links',
+
 	{ "echasnovski/mini.nvim", version = false },
 	"nvim-lua/plenary.nvim",
 
@@ -797,8 +793,6 @@ require("lazy").setup({
 							callback = vim.lsp.buf.clear_references,
 						})
 
-
-
 						vim.api.nvim_create_autocmd("LspDetach", {
 							group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
 							callback = function(event2)
@@ -1118,8 +1112,6 @@ require("lazy").setup({
 
 	--default colorscheme
 
-
-
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
@@ -1257,5 +1249,6 @@ require("lazy").setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-vim.diagnostic.config({virtual_text = false})
-vim.cmd 'colorscheme catppuccin'
+vim.diagnostic.config({ virtual_text = false })
+vim.cmd("colorscheme catppuccin")
+
