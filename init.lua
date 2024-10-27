@@ -180,11 +180,11 @@ vim.keymap.set("n", "<leader>tj", ":sp | term julia<cr>", { noremap = true, sile
 --opening file in python terminal
 vim.keymap.set("n", "<leader>p", ":w! | sp | term python3 %<CR>", { noremap = true, silent = true })
 --vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
-
 --commenting out
 vim.keymap.set("n", "<leader>[", ":CommentToggle<cr>")
 vim.keymap.set("n", "<leader>fmp", ":silent !black %<cr>")
-
+--start preview
+vim.keymap.set("n", "<leader>cp", ":MarkdownPreviewToggle<cr>")
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -303,6 +303,12 @@ require("lazy").setup({
 			require("nvim_comment").setup({ create_mappings = false })
 		end,
 	},
+	{
+		"iamcco/markdown-preview.nvim",
+		config = function()
+			vim.fn["mkdp#util#install"]() 
+		end,
+	},
 
 	-- Save and load buffers (a session) automatically for each folder
 	--	{
@@ -323,7 +329,7 @@ require("lazy").setup({
 		init = function()
 			-- Disable automatic setup, we are doing it manually
 			vim.g.lsp_zero_extend_cmp = 0
-			vim.g.lsp_zero_extend_lspconfig = 0
+			vim.g.lsp_zero_extend_lspconfig = 0	
 		end,
 	},
 	{
@@ -1251,4 +1257,3 @@ require("lazy").setup({
 -- vim: ts=2 sts=2 sw=2 et
 vim.diagnostic.config({ virtual_text = false })
 vim.cmd("colorscheme catppuccin")
-
