@@ -160,32 +160,6 @@ vim.opt.scrolloff = 10
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-
---custom Keybinds
-vim.keymap.set("n", "<leader>ee", ":Explore<cr>")
-vim.keymap.set("n", "<tab>l", ":bnext<cr>")
-vim.keymap.set("n", "<tab>h", ":bprev<cr>")
-vim.keymap.set("n", "<leader>x", ":bd!<cr>")
-vim.keymap.set("n", "<leader>ci", "5G")
-vim.keymap.set("n", "<leader>S", "ggVG<leader>j")
-vim.keymap.set("n", "<leader>a", ":Alpha<cr>") --opening dashboard
-vim.keymap.set("n", "<leader>et", ":Neotree<cr>") --opening neotree
-vim.keymap.set("n", "<leader>dl", ":DarkLightSwitch<cr>") --switching dark theme and light ttheme
---opening notes directory
-vim.keymap.set("n", "<leader>cn", ":cd ~|cd .. |cd SyncthingServiceAcct/Desktop/Notes<cr>")
-vim.keymap.set("n", "<leader>cr", ":cd ~|cd Notes<cr>")
---saving files
-vim.keymap.set("n", "<leader>sa", ":w!<cr>")
---opening julia RPL
-vim.keymap.set("n", "<leader>tj", ":sp | term julia<cr>", { noremap = true, silent = true })
---opening file in python terminal
-vim.keymap.set("n", "<leader>p", ":w! | sp | term python3 %<CR>", { noremap = true, silent = true })
---vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
---commenting out
-vim.keymap.set("n", "<leader>[", ":CommentToggle<cr>")
-vim.keymap.set("n", "<leader>fmp", ":silent !black %<cr>")
---start preview
-vim.keymap.set("n", "<leader>cp", ":MarkdownPreviewToggle<cr>")
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -1255,6 +1229,7 @@ require("lazy").setup({
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 		opts = {
+
 			ensure_installed = {
 				"bash",
 				"c",
@@ -1330,6 +1305,32 @@ require("lazy").setup({
 		},
 	},
 })
+
+--custom Keybinds
+vim.keymap.set("n", "<leader>ee", ":Explore<cr>")
+vim.keymap.set("n", "<tab>l", ":bnext<cr>")
+vim.keymap.set("n", "<tab>h", ":bprev<cr>")
+vim.keymap.set("n", "<leader>x", ":bd!<cr>")
+vim.keymap.set("n", "<leader>ci", "5G")
+vim.keymap.set("n", "<leader>S", "ggVG<leader>j")
+vim.keymap.set("n", "<leader>a", ":Alpha<cr>") --opening dashboard
+vim.keymap.set("n", "<leader>et", ":Neotree<cr>") --opening neotree
+vim.keymap.set("n", "<leader>dl", ":DarkLightSwitch<cr>") --switching dark theme and light ttheme
+--opening notes directory
+vim.keymap.set("n", "<leader>cn", ":cd ~|cd .. |cd SyncthingServiceAcct/Desktop/Notes<cr>")
+vim.keymap.set("n", "<leader>cr", ":cd ~|cd Notes<cr>")
+--saving files
+vim.keymap.set("n", "<leader>sa", ":w!<cr>")
+--opening julia RPL
+vim.keymap.set("n", "<leader>tj", ":sp | term julia<cr>", { noremap = true, silent = true })
+--opening file in python terminal
+vim.keymap.set("n", "<leader>p", ":w! | sp | term python3 %<CR>", { noremap = true, silent = true })
+--vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
+--commenting out
+vim.keymap.set("n", "<leader>[", ":'<,'>s/^/#<cr>")
+vim.keymap.set("n", "<leader>fmp", ":silent !black %<cr>")
+--start preview
+vim.keymap.set("n", "<leader>cp", ":MarkdownPreviewToggle<cr>")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
