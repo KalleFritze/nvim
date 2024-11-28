@@ -31,6 +31,8 @@ return {
 			\documentclass[12pt, letterpaper]{article}
 			\usepackage{hyperref}
 			\usepackage[utf8]{inputenc}
+			\usepackage{graphicx}
+			\graphicspath{/Schule/Mathematik/graphics}
 			\usepackage{imakeidx}
 			\hypersetup{
 			    colorlinks=true,
@@ -67,6 +69,20 @@ return {
 			{ i(1) }
 		)
 	),
+	--add graphic
+	s(
+		{
+			trig = "graphic",
+			snippetType = "snippet",
+			desc = "adds graphic",
+		},
+		fmta(
+			[[
+		\includegraphics[width = 8cm]{<>}
+		]],
+			{ i(1) }
+		)
+	),
 	s({ trig = ";i", snippetType = "autosnippet", desc = "index", wordTrig = false }, { t("\\item") }),
 	--greek letters:
 	--alpha
@@ -78,7 +94,24 @@ return {
 
 	s({ trig = ";de", snippetType = "autosnippet", desc = "delta", wordTrig = false }, { t("\\delta") }),
 
+	--tabelle neue linie
+	s({ trig = ";hl", snippetType = "autosnippet", desc = "hline", wordTrig = false }, { t("\\hline") }),
 	--general
+	--overline
+	s(
+		{
+			trig = "ol",
+			snippetType = "snippet",
+			desc = "curled brackets",
+			wordTrig = false,
+		},
+		fmta(
+			[[
+		\overline{<>}
+		]],
+			{ i(1) }
+		)
+	),
 	--brackets:
 	--curled brackets
 	s(
@@ -203,9 +236,20 @@ return {
 		{ trig = "mathbeg", snippetType = "autosnippet", dscr = "begins  a new math environment" },
 		fmta(
 			[[
-		\\\begin{math}
+		\begin{math}
 			<>
-		\end{math}\\
+		\end{math}
+		]],
+			{ i(1) }
+		)
+	),
+	s(
+		{ trig = ";[", snippetType = "autosnippet", dscr = "bgins  a new math environment" },
+		fmta(
+			[[
+		\[	
+			<>
+		\],
 		]],
 			{ i(1) }
 		)

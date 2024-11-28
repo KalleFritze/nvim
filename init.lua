@@ -1317,8 +1317,7 @@ vim.keymap.set("n", "<leader>a", ":Alpha<cr>") --opening dashboard
 vim.keymap.set("n", "<leader>et", ":Neotree<cr>") --opening neotree
 vim.keymap.set("n", "<leader>dl", ":DarkLightSwitch<cr>") --switching dark theme and light ttheme
 --opening notes directory
-vim.keymap.set("n", "<leader>cn", ":cd ~|cd .. |cd SyncthingServiceAcct/Desktop/Notes<cr>")
-vim.keymap.set("n", "<leader>cr", ":cd ~|cd Notes<cr>")
+vim.keymap.set("n", "<leader>cn", ":cd D:<cr>")
 --saving files
 vim.keymap.set("n", "<leader>sa", ":w!<cr>")
 --opening julia RPL
