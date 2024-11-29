@@ -1317,7 +1317,7 @@ vim.keymap.set("n", "<leader>a", ":Alpha<cr>") --opening dashboard
 vim.keymap.set("n", "<leader>et", ":Neotree<cr>") --opening neotree
 vim.keymap.set("n", "<leader>dl", ":DarkLightSwitch<cr>") --switching dark theme and light ttheme
 --opening notes directory
-vim.keymap.set("n", "<leader>cn", ":cd USBStick:<cr>")
+vim.keymap.set("n", "<leader>cn", ":cd D:<cr>")
 --saving files
 vim.keymap.set("n", "<leader>sa", ":w!<cr>")
 --opening julia RPL
@@ -1334,4 +1334,5 @@ vim.keymap.set("n", "<leader>cp", ":MarkdownPreviewToggle<cr>")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 vim.diagnostic.config({ virtual_text = false })
-vim.cmd("colorscheme catppuccin")
+vim.cmd("DarkLightSwitch")
+vim.cmd("colorscheme quiet")
