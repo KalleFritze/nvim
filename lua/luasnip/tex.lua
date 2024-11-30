@@ -32,7 +32,7 @@ return {
 			\usepackage{hyperref}
 			\usepackage[utf8]{inputenc}
 			\usepackage{graphicx}
-			\graphicspath{/Schule/Mathematik/graphics}
+			\graphicspath{/graphics}
 			\usepackage{imakeidx}
 			\hypersetup{
 			    colorlinks=true,
