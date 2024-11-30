@@ -32,8 +32,7 @@ return {
 			\usepackage{hyperref}
 			\usepackage[utf8]{inputenc}
 			\usepackage{graphicx}
-			\graphicspath{/graphics}
-			\usepackage{imakeidx}
+			\graphicspath{D:\graphics}
 			\hypersetup{
 			    colorlinks=true,
 			    linkcolor=blue,
@@ -78,7 +77,9 @@ return {
 		},
 		fmta(
 			[[
-		\includegraphics[width = 8cm]{<>}
+			\begin{figure}
+		\includegraphics[width = 8cm]{graphics/<>}
+		\end{figure}
 		]],
 			{ i(1) }
 		)
