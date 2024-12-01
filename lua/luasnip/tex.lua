@@ -30,9 +30,10 @@ return {
 			[[
 			\documentclass[12pt, letterpaper]{article}
 			\usepackage{hyperref}
+			\usepackage{titlesec}
 			\usepackage[utf8]{inputenc}
 			\usepackage{graphicx}
-			\graphicspath{D:\graphics}
+			\graphicspath{/media/Aaron/USBStick/graphics}
 			\hypersetup{
 			    colorlinks=true,
 			    linkcolor=blue,
@@ -41,17 +42,20 @@ return {
 			    pdftitle={Overleaf Example},
 			    pdfpagemode=FullScreen,
 			    }
-			\makeindex
 
+			\title{<>}
+			\author{Aaron Tsamaltoupis}
 
 
 			\begin{document}
+			\maketitle
+			\tableofcontents
+			\newpage
 			<>
 
-			\printindex
 			\end{document}
 			]],
-			{ i(1) }
+			{ i(1), i(2) }
 		)
 	),
 	--add word to index
@@ -88,6 +92,22 @@ return {
 	--greek letters:
 	--alpha
 	s({ trig = ";al", snippetType = "autosnippet", desc = "alpha", wordTrig = false }, { t("\\alpha") }),
+	--epsilon
+	s({ trig = ";ep", snippetType = "autosnippet", desc = "epsilon", wordTrig = false }, { t("\\epsilon") }),
+	--neg
+	s({ trig = "neg", snippetType = "snippet", desc = "negate", wordTrig = false }, { t("\\neg ") }),
+	--beta
+	s({ trig = ";bet", snippetType = "autosnippet", desc = "beta", wordTrig = false }, { t("\\beta") }),
+	--rightarrow
+	s({ trig = "right", snippetType = "snippet", desc = "rightarrow", wordTrig = false }, { t("\\rightarrow ") }),
+	--leftarrow
+	s({ trig = "left", snippetType = "snippet", desc = "leftarrow", wordTrig = false }, { t("\\leftarrow ") }),
+	--leftrightarrow
+	s({ trig = "lr", snippetType = "snippet", desc = "leftrightarrow", wordTrig = false }, { t("\\leftrightarrow ") }),
+	--and
+	s({ trig = "and", snippetType = "snippet", desc = "and", wordTrig = false }, { t("\\land ") }),
+	--or
+	s({ trig = "or", snippetType = "snippet", desc = "or", wordTrig = false }, { t("\\lor ") }),
 	--lambda
 	s({ trig = ";la", snippetType = "autosnippet", desc = "lambda", wordTrig = false }, { t("\\lambda") }),
 	--Delta
@@ -129,6 +149,21 @@ return {
 			{ i(1) }
 		)
 	),
+	--brackets
+	s(
+		{
+			trig = "(",
+			snippetType = "autosnippet",
+			desc = "brackets",
+			wordTrig = false,
+		},
+		fmta(
+			[[
+		(<>)
+		]],
+			{ i(1) }
+		)
+	),
 	--creating links
 	s(
 		{
@@ -140,7 +175,7 @@ return {
 			[[
 		\hyperref[sec:<>]{<>}
 		]],
-			{ i(1), i(2) }
+			{ i(1), rep(1) }
 		)
 	),
 
@@ -245,12 +280,12 @@ return {
 		)
 	),
 	s(
-		{ trig = ";[", snippetType = "autosnippet", dscr = "bgins  a new math environment" },
+		{ trig = "[[", snippetType = "autosnippet", dscr = "bgins  a new math environment" },
 		fmta(
 			[[
 		\[	
 			<>
-		\],
+		\]
 		]],
 			{ i(1) }
 		)
@@ -271,12 +306,12 @@ return {
 		{ trig = "sec", snippetType = "snippet", dscr = "begins a new section" },
 		fmta(
 			[[
+		\newpage
 		\section{<>}
 		\label{sec:<>}
-		\index{<>}
 		<>
 		]],
-			{ i(1), rep(1), i(2), i(3) }
+			{ i(1), rep(1), i(2) }
 		)
 	),
 	s(
@@ -284,6 +319,17 @@ return {
 		fmta(
 			[[
 		\subsection{<>}
+		\label{sec:<>}
+		<>
+		]],
+			{ i(1), rep(1), i(2) }
+		)
+	),
+	s(
+		{ trig = "sssec", snippetType = "snippet", dscr = "begins a new subsubsection" },
+		fmta(
+			[[
+		\subsubsection{<>}
 		\label{sec:<>}
 		<>
 		]],
