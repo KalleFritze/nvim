@@ -23,4 +23,18 @@ return {
 			{ i(1), rep(1) }
 		)
 	),
+	s(
+		{
+			trig = "(",
+			snippetType = "autosnippet",
+			desc = "brackets",
+			wordTrig = false,
+		},
+		fmta(
+			[[
+		(<>)
+		]],
+			{ i(1) }
+		)
+	),
 }

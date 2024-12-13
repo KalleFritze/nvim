@@ -30,10 +30,12 @@ return {
 			[[
 			\documentclass[12pt, letterpaper]{article}
 			\usepackage{hyperref}
-			\usepackage{titlesec}
 			\usepackage[utf8]{inputenc}
+			\usepackage{amsfonts}
+			\usepackage{amsmath}
+			\usepackage{lwarp-titlesec}
 			\usepackage{graphicx}
-			\graphicspath{/media/Aaron/USBStick/graphics}
+			\graphicspath{\media\Aaron\USBStick}
 			\hypersetup{
 			    colorlinks=true,
 			    linkcolor=blue,
@@ -43,7 +45,7 @@ return {
 			    pdfpagemode=FullScreen,
 			    }
 
-			\title{<>}
+			\title{<>
 			\author{Aaron Tsamaltoupis}
 
 
@@ -81,19 +83,23 @@ return {
 		},
 		fmta(
 			[[
-			\begin{figure}
+			\begin{center}
 		\includegraphics[width = 8cm]{graphics/<>}
-		\end{figure}
+		\end{center}
 		]],
 			{ i(1) }
 		)
 	),
 	s({ trig = ";i", snippetType = "autosnippet", desc = "index", wordTrig = false }, { t("\\item") }),
 	--greek letters:
+	--absatz
+	s({ trig = ";;", snippetType = "autosnippet", desc = "alpha", wordTrig = false }, { t("\\\\") }),
 	--alpha
 	s({ trig = ";al", snippetType = "autosnippet", desc = "alpha", wordTrig = false }, { t("\\alpha") }),
 	--epsilon
 	s({ trig = ";ep", snippetType = "autosnippet", desc = "epsilon", wordTrig = false }, { t("\\epsilon") }),
+	--vareepsilon
+	s({ trig = ";vep", snippetType = "autosnippet", desc = "vareepsilon", wordTrig = false }, { t("\\varepsilon") }),
 	--neg
 	s({ trig = "neg", snippetType = "snippet", desc = "negate", wordTrig = false }, { t("\\neg ") }),
 	--beta
@@ -118,12 +124,27 @@ return {
 	--tabelle neue linie
 	s({ trig = ";hl", snippetType = "autosnippet", desc = "hline", wordTrig = false }, { t("\\hline") }),
 	--general
+	--set
+	s(
+		{
+			trig = "set",
+			snippetType = "snippet",
+			desc = "set",
+			wordTrig = false,
+		},
+		fmta(
+			[[
+		\{<>\}
+		]],
+			{ i(1) }
+		)
+	),
 	--overline
 	s(
 		{
 			trig = "ol",
 			snippetType = "snippet",
-			desc = "curled brackets",
+			desc = "overline",
 			wordTrig = false,
 		},
 		fmta(
@@ -249,6 +270,21 @@ return {
 		fmta(
 			[[
 		\textbf{<>}	
+		]],
+			{ i(1) }
+		)
+	),
+	--sc
+	s(
+		{
+			trig = "sc",
+			snippetType = "snippet",
+			desc = "bold",
+			wordTrig = false,
+		},
+		fmta(
+			[[
+		\textsc{<>}	
 		]],
 			{ i(1) }
 		)
